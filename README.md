@@ -1,3 +1,7 @@
+![Build Status](https://codeship.com/projects/88422/status?branch=master)
+![Code Climate](https://codeclimate.com/github/EliseFitz15/writing-on-the-wall.png)
+![Coverage Status](https://coveralls.io/repos/EliseFitz15/writing-on-the-wall/badge.png)
+
 == README
 
 This README would normally document whatever steps are necessary to get the
