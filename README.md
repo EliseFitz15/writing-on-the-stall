@@ -1,4 +1,4 @@
-![Build Status](https://codeship.com/projects/88422/status?branch=master)
+![Build Status](https://codeship.com/projects/d801dcd0-00b1-0133-c54a-46d3771abf46/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/EliseFitz15/writing-on-the-wall.png)
 ![Coverage Status](https://coveralls.io/repos/EliseFitz15/writing-on-the-wall/badge.png)
 
