@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-# Acceptence Criteria
+# Acceptance Criteria
 # [ x] There is a new page
 # [ x] I can submit a form to add a new bathroom
 # [ x] I am notified when I create a bathroom

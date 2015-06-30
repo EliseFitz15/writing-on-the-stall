@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-# Acceptence Criteria
+# Acceptance Criteria
 # [ ] There is an index page
 # [ ] I can see a list of bathrooms
 
