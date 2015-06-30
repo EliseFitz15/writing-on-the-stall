@@ -1,0 +1,20 @@
+<h1>
+  Bathroom at: <%= @bathroom.location_name %>
+</h1>
+
+<table>
+  <tr>
+    <th>Rating</th>
+    <th>Street Address</th>
+    <th>Zip Code</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><%= @bathroom.rating_average %></td>
+    <td><%= @bathroom.street_address %></td>
+    <td><%= @bathroom.zip_code %></td>
+    <td><%= @bathroom.description %></td>
+  </tr>
+</table>
+
+<%= link_to "Back to All Bathrooms", bathrooms_path %>
