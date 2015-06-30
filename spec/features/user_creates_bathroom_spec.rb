@@ -21,7 +21,7 @@ So that others can review it" do
     fill_in :bathroom_location_name, with: "McDonald's"
     fill_in :bathroom_street_address, with: "12 Junkyard lane"
     fill_in :bathroom_zip_code, with: "02443"
-    fill_in :bathroom_description, with: "Downstairs, dark path, joe's waiting.."
+    fill_in :bathroom_description, with: "Downstairs, dark path, joe's waiting."
     click_button "Create Bathroom"
 
     expect(page).to have_content("McDonald's")

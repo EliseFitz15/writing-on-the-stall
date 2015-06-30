@@ -18,11 +18,12 @@ class BathroomsController < ApplicationController
     else
       render :new
     end
-
   end
 
   protected
+  
     def bathroom_params
-      params.require(:bathroom).permit(:location_name, :street_address, :zip_code, :description, :user_id)
+      params.require(:bathroom).permit(:location_name, :street_address,
+        :zip_code, :description, :user_id)
     end
 end
