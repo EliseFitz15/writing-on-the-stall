@@ -1,5 +1,5 @@
 class BathroomsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :new]
+  before_action :authenticate_user!, except: [:index]
   def index
     @bathrooms = Bathroom.all
   end
@@ -14,7 +14,7 @@ class BathroomsController < ApplicationController
 
   def create
     @bathroom = Bathroom.new(bathroom_params)
-    @bathroom.user_id = current_user.id
+    @bathroom.user = current_user
 
     if @bathroom.save
       flash[:notice] = "Bathroom Created!"
