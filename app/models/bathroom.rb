@@ -1,5 +1,4 @@
 class Bathroom < ActiveRecord::Base
-  has_many :reviews
   belongs_to :user
   validates :user, presence: true
   validates :location_name, presence: true
