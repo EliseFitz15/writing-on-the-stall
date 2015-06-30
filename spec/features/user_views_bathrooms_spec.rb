@@ -21,7 +21,7 @@ So I can find a good bathroom when needed." do
       zip_code: "02116",
       description: "Back corner. Key from barista. Watch out for joe."
       )
-    visit '/bathrooms'
+    visit bathrooms_path
     expect(page).to have_content("List of Bathrooms")
     expect(page).to have_content(bathroom.location_name)
   end
