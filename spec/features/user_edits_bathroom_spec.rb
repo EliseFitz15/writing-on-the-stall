@@ -26,8 +26,8 @@ so that bathroom has relevant information" do
     click_button "Log in"
     visit bathroom_path(@bathroom)
 
-    expect(page).to have_button("Edit this Bathroom")
-    click_button 'Edit this Bathroom'
+    expect(page).to have_link("Edit this Bathroom")
+    click_link 'Edit this Bathroom'
     fill_in :bathroom_location_name, with: "Ian is weird"
     fill_in :bathroom_street_address, with: "SYKE HES HOT"
     fill_in :bathroom_zip_code, with: "02243"
@@ -55,8 +55,8 @@ so that bathroom has relevant information" do
     click_button "Log in"
     visit bathroom_path(@bathroom)
 
-    expect(page).to have_button("Edit this Bathroom")
-    click_button 'Edit this Bathroom'
+    expect(page).to have_link("Edit this Bathroom")
+    click_link 'Edit this Bathroom'
     fill_in :bathroom_street_address, with: "SYKE HES HOT"
     fill_in :bathroom_zip_code, with: "02243"
     fill_in :bathroom_description, with: "Brian's not too shabby either"
