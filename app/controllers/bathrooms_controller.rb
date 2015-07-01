@@ -24,6 +24,21 @@ class BathroomsController < ApplicationController
     end
   end
 
+  def edit
+    @bathroom = Bathroom.find(params[:id])
+  end
+
+  def update
+    @bathroom = Bathroom.find(params[:id])
+
+    if @bathroom.update(bathroom_params)
+      flash[:notice] = 'Bathroom Edited'
+      redirect_to bathroom_path(@bathroom)
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @bathroom = Bathroom.find(params[:id]).destroy
     flash[:notice] = "Bathroom Deleted"
