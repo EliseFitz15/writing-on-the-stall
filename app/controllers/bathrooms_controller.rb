@@ -24,6 +24,12 @@ class BathroomsController < ApplicationController
     end
   end
 
+  def destroy
+    @bathroom = Bathroom.find(params[:id]).destroy
+    flash[:notice] = "Bathroom Deleted"
+    redirect_to bathrooms_path
+  end
+
   protected
 
   def bathroom_params
