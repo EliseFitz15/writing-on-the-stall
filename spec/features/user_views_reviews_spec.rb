@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 # Acceptance criteria
-# [ ] I must be logged in
-# [ ] I must be on the bathrooms details page
-# [ ] I can see a list of reviews ordered by most recent review
+# [√] I must be logged in
+# [√] I must be on the bathrooms details page
+# [] I can see a list of reviews ordered by most recent review
 
 feature 'As a user
   I want to view all reviews on a bathroom
@@ -22,7 +22,7 @@ feature 'As a user
       user_id: @user.id,
       bathroom_id: @bathroom.id,
       body: "Favorite bathroom evahhhhhh",
-      rating_id: 3)
+      rating: 3)
     visit new_user_session_path
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
