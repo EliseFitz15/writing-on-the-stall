@@ -1,0 +1,32 @@
+<h1>
+  Bathroom at: <%= @bathroom.location_name %>
+</h1>
+
+<table>
+  <tr>
+    <th>Rating</th>
+    <th>Street Address</th>
+    <th>Zip Code</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><%= @bathroom.rating_average %></td>
+    <td><%= @bathroom.street_address %></td>
+    <td><%= @bathroom.zip_code %></td>
+    <td><%= @bathroom.description %></td>
+  </tr>
+</table>
+
+<%= link_to "Back to All Bathrooms", bathrooms_path %>
+
+<% if @bathroom.user == current_user %>
+  <%= button_to "Delete this Bathroom", bathroom_path, method: :delete %>
+<% end %>
+
+<h2>Reviews</h2>
+
+<% @reviews.each do |review| %>
+  <%= review.body %>
+  <%= review.rating %>
+  <%= review.created_at %>
+<% end %>

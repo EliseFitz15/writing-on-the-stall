@@ -6,17 +6,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="/">WritingOnTheStall</a></h1>
+        <%= image_tag("Toilet-Sign-White.png") %>
+        <h1><a href="/">Writing On The Stall</a></h1>
       </li>
     </ul>
 
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>
+          <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
@@ -34,7 +36,10 @@
 
   <%= yield %>
 
-  <%= javascript_include_tag 'application' %>
+<div class="footer">
+
   <%= yield :extra_footer %>
+</div>
+  <%= javascript_include_tag 'application' %>
 </body>
 </html>
