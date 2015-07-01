@@ -3,12 +3,13 @@ require 'rails_helper'
 # Acceptance criteria
 # [√] I must be logged in
 # [√] I must be on the bathrooms details page
-# [] I can see a list of reviews ordered by most recent review
+# [√] I can see a list of reviews ordered by most recent review
 
 feature 'As a user
   I want to view all reviews on a bathroom
   So that I can decide which bathroom to visit' do
-  scenario 'user visits bathroom details page and sees reviews for that bathroom' do
+  scenario 'user visits bathroom details page
+    and sees reviews for that bathroom' do
     @user = FactoryGirl.create(:user)
     @bathroom = Bathroom.create!(
       user: @user,
