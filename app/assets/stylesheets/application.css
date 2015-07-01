@@ -15,3 +15,29 @@
  *= require foundation_and_overrides
 
  */
+ body {
+  background-image: url("Landing_Page.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  overflow-x: hidden;
+ }
+
+.footer {
+  background-color: #333;
+  height: 150px;
+  position: fixed;
+  top: 100%;
+  overflow-y: visible;
+}
+
+.top-bar img {
+  height: 100%;
+  float: left;
+  background-color: #26ade4;
+  margin-right: 10px;
+}
+
+.top-bar h1 {
+  width: 250px;
+}
