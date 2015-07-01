@@ -18,3 +18,7 @@
 </table>
 
 <%= link_to "Back to All Bathrooms", bathrooms_path %>
+
+<% if @bathroom.user == current_user %>
+  <%= button_to "Delete this Bathroom", bathroom_path, method: :delete %>
+<% end %>
