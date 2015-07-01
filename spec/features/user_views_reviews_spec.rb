@@ -23,15 +23,17 @@ feature 'As a user
       user_id: @user.id,
       bathroom_id: @bathroom.id,
       body: "Favorite bathroom evahhhhhh",
-      rating: 3)
+      rating: 3
+      )
+
     visit new_user_session_path
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
     click_button "Log in"
-    expect(page).to have_content "Signed in successfully"
+
     click_link 'Check out bathrooms'
-    expect(page).to have_content "Starbucks"
     click_link @bathroom.location_name
+    
     expect(page).to have_content 'Reviews'
     expect(page).to have_content(@bathroom.location_name)
     expect(page).to have_content(@review.body)
