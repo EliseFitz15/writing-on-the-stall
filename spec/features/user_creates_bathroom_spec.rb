@@ -7,7 +7,7 @@ require 'rails_helper'
 # [ x] I am notified when form is filled out incorrectly
 
 feature "As an authenticated user
-I want to add an item
+I want to add a bathroom
 So that others can review it" do
   scenario 'User fills in bathroom form and submits' do
     @user = FactoryGirl.create(:user)
