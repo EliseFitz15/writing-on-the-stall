@@ -10,7 +10,8 @@
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="/">WritingOnTheStall</a></h1>
+        <%= image_tag("Toilet-Sign-White.png") %>
+        <h1><a href="/">Writing On The Stall</a></h1>
       </li>
     </ul>
 
@@ -35,7 +36,10 @@
 
   <%= yield %>
 
-  <%= javascript_include_tag 'application' %>
+<div class="footer">
+
   <%= yield :extra_footer %>
+</div>
+  <%= javascript_include_tag 'application' %>
 </body>
 </html>
