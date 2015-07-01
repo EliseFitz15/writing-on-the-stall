@@ -30,7 +30,7 @@
   </nav>
 
   <% flash.keys.each do |type| %>
-    <% flash[type].split(".").each do |f| %>
+    <% flash[type].split(":( ").each do |f| %>
       <div data-alert class="flash <%= type %> alert-box radius">
           <%= f %>
         <a href="#" class="close">&times;</a>
