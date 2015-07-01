@@ -33,7 +33,7 @@ feature 'As a user
 
     click_link 'Check out bathrooms'
     click_link @bathroom.location_name
-    
+
     expect(page).to have_content 'Reviews'
     expect(page).to have_content(@bathroom.location_name)
     expect(page).to have_content(@review.body)
