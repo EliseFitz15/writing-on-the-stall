@@ -22,3 +22,11 @@
 <% if @bathroom.user == current_user %>
   <%= button_to "Delete this Bathroom", bathroom_path, method: :delete %>
 <% end %>
+
+<h2>Reviews</h2>
+
+<% @reviews.each do |review| %>
+  <%= review.body %>
+  <%= review.rating %>
+  <%= review.created_at %>
+<% end %>
