@@ -3,5 +3,8 @@
 </h1>
 
 <% @bathrooms.each do |bathroom| %>
-  <%= bathroom.location_name %>
+  <li><%= link_to bathroom.location_name, bathroom_path(bathroom) %><br>
+  <%= bathroom.street_address %></li>
 <%end%>
+
+<%= link_to "Create New Bathroom", new_bathroom_path %>
