@@ -1,12 +1,11 @@
 require 'rails_helper'
 
 # Acceptance Criteria
-# [] I can only see the edit button if I own the bathroom
-# [] There is an edit button on the show page
-# [] I can click the button to edit my bathroom
-# [] I am linked to a page to edit my selected bathroom
-# [] I am notified when I edit my bathroom
-
+# [x] I can only see the edit button if I own the bathroom
+# [x] There is an edit button on the show page
+# [x] I can click the button to edit my bathroom
+# [x] I am linked to a page to edit my selected bathroom
+# [x] I am notified when I edit my bathroom
 
 feature "As an authenticated user
 I want to edit a bathroom
