@@ -11,14 +11,7 @@ feature 'As a user
   scenario 'user visits bathroom details page
     and sees reviews for that bathroom' do
     @user = FactoryGirl.create(:user)
-    @bathroom = Bathroom.create!(
-      user: @user,
-      rating_average: 5.0,
-      location_name: "Starbucks",
-      street_address: "62 Boylston",
-      zip_code: "02116",
-      description: "Back corner. Key from barista. Watch out for joe."
-      )
+    @bathroom = FactoryGirl.create(:bathroom, user: @user)
     @review = Review.create!(
       user_id: @user.id,
       bathroom_id: @bathroom.id,
