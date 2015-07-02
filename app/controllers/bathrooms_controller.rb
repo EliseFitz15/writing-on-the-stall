@@ -6,6 +6,7 @@ class BathroomsController < ApplicationController
 
   def show
     @bathroom = Bathroom.find(params[:id])
+    @reviews = @bathroom.reviews.order(created_at: :desc)
   end
 
   def new

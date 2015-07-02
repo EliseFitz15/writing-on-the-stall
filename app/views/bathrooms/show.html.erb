@@ -23,3 +23,11 @@
   <%= button_to "Delete this Bathroom", bathroom_path, method: :delete %>
   <%= link_to "Edit this Bathroom", edit_bathroom_path, class: 'button' %>
 <% end %>
+
+<h2>Reviews</h2>
+
+<% @reviews.each do |review| %>
+  <%= review.body %>
+  <%= review.rating %>
+  <%= review.created_at %>
+<% end %>
