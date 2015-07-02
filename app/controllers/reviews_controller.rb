@@ -20,6 +20,7 @@ class ReviewsController < ApplicationController
   end
 
   protected
+  
   def review_params
     params.require(:review).permit(:body, :rating, :bathroom_id)
   end
