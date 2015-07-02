@@ -11,14 +11,7 @@ I want to delete a bathroom
 and all reviews for that bathroom" do
   scenario 'User deletes a bathroom' do
     @user = FactoryGirl.create(:user)
-    @bathroom = Bathroom.create!(
-      user: @user,
-      rating_average: 5.0,
-      location_name: "Starbucks",
-      street_address: "62 Boylston",
-      zip_code: "02116",
-      description: "Back corner. Key from barista. Watch out for joe."
-      )
+    @bathroom = FactoryGirl.create(:bathroom, user: @user)
     visit new_user_session_path
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
@@ -34,14 +27,7 @@ and all reviews for that bathroom" do
   scenario 'User who does not own the bathroom, cannot see the delete button' do
     @user = FactoryGirl.create(:user)
     @user2 = FactoryGirl.create(:user)
-    @bathroom = Bathroom.create!(
-      user: @user,
-      rating_average: 5.0,
-      location_name: "Starbucks",
-      street_address: "62 Boylston",
-      zip_code: "02116",
-      description: "Back corner. Key from barista. Watch out for joe."
-      )
+    @bathroom = FactoryGirl.create(:bathroom, user: @user)
     visit new_user_session_path
     fill_in 'Email', with: @user2.email
     fill_in 'Password', with: @user2.password

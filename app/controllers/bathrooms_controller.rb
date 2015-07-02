@@ -20,8 +20,8 @@ class BathroomsController < ApplicationController
       flash[:notice] = "Bathroom Created!"
       redirect_to bathrooms_path
     else
-      flash[:alert] = @bathroom.errors.full_messages.join(":( ")
-      redirect_to new_bathroom_path
+      flash.now[:alert] = @bathroom.errors.full_messages.join(":( ")
+      render :new
     end
   end
 
@@ -36,8 +36,8 @@ class BathroomsController < ApplicationController
       flash[:notice] = 'Bathroom Edited'
       redirect_to bathroom_path(@bathroom)
     else
-      flash[:alert] = @bathroom.errors.full_messages.join(":( ")
-      redirect_to edit_bathroom_path(@bathroom)
+      flash.now[:alert] = @bathroom.errors.full_messages.join(":( ")
+      render :edit
     end
   end
 

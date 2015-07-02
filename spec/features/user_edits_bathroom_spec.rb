@@ -12,14 +12,7 @@ I want to edit a bathroom
 so that bathroom has relevant information" do
   scenario 'User edits a bathroom' do
     @user = FactoryGirl.create(:user)
-    @bathroom = Bathroom.create!(
-      user: @user,
-      rating_average: 5.0,
-      location_name: "Starbucks",
-      street_address: "62 Boylston",
-      zip_code: "02116",
-      description: "Back corner. Key from barista. Watch out for joe."
-      )
+    @bathroom = FactoryGirl.create(:bathroom, user: @user)
     visit new_user_session_path
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
@@ -41,14 +34,7 @@ so that bathroom has relevant information" do
 
   scenario 'User incorrectly edits a bathroom' do
     @user = FactoryGirl.create(:user)
-    @bathroom = Bathroom.create!(
-      user: @user,
-      rating_average: 5.0,
-      location_name: "Starbucks",
-      street_address: "62 Boylston",
-      zip_code: "02116",
-      description: "Back corner. Key from barista. Watch out for joe."
-      )
+    @bathroom = FactoryGirl.create(:bathroom, user: @user)
     visit new_user_session_path
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
