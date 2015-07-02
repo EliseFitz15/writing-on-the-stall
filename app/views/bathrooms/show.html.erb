@@ -20,14 +20,26 @@
 <%= link_to "Back to All Bathrooms", bathrooms_path %>
 
 <% if @bathroom.user == current_user %>
-  <%= button_to "Delete this Bathroom", bathroom_path, method: :delete %>
-  <%= link_to "Edit this Bathroom", edit_bathroom_path, class: 'button' %>
+  <%= button_to "Delete this Bathroom", bathroom_path(@bathroom), method: :delete %>
+  <%= link_to "Edit this Bathroom", edit_bathroom_path(@bathroom), class: 'button' %>
 <% end %>
 
 <h2>Reviews</h2>
 
+<div>
+  <%= form_for [@bathroom, @review] do |f| %>
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+    <%= f.label :rating %>
+    <%= f.text_field :rating %>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>
+
+<div>
 <% @reviews.each do |review| %>
   <%= review.body %>
   <%= review.rating %>
   <%= review.created_at %>
 <% end %>
+</div>

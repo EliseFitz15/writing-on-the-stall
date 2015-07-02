@@ -11,13 +11,13 @@ feature "As an authenticated user
 I want to edit a bathroom
 so that bathroom has relevant information" do
   scenario 'User edits a bathroom' do
-    @user = FactoryGirl.create(:user)
-    @bathroom = FactoryGirl.create(:bathroom, user: @user)
+    user = FactoryGirl.create(:user)
+    bathroom = FactoryGirl.create(:bathroom, user: user)
     visit new_user_session_path
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button "Log in"
-    visit bathroom_path(@bathroom)
+    visit bathroom_path(bathroom)
 
     expect(page).to have_link("Edit this Bathroom")
     click_link 'Edit this Bathroom'
@@ -33,13 +33,13 @@ so that bathroom has relevant information" do
   end
 
   scenario 'User incorrectly edits a bathroom' do
-    @user = FactoryGirl.create(:user)
-    @bathroom = FactoryGirl.create(:bathroom, user: @user)
+    user = FactoryGirl.create(:user)
+    bathroom = FactoryGirl.create(:bathroom, user: user)
     visit new_user_session_path
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button "Log in"
-    visit bathroom_path(@bathroom)
+    visit bathroom_path(bathroom)
 
     expect(page).to have_link("Edit this Bathroom")
     click_link 'Edit this Bathroom'
@@ -48,6 +48,6 @@ so that bathroom has relevant information" do
     fill_in :bathroom_description, with: "Brian's not too shabby either"
     click_button "Edit Bathroom"
 
-    expect(page).to have_content(@bathroom.errors.full_messages.first)
+    expect(page).to have_content(bathroom.errors.full_messages.first)
   end
 end
