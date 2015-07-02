@@ -10,10 +10,10 @@ feature "As an authenticated user
 I want to add a bathroom
 So that others can review it" do
   scenario 'User fills in bathroom form and submits' do
-    @user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(:user)
     visit new_user_session_path
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button "Log in"
 
     visit bathrooms_path

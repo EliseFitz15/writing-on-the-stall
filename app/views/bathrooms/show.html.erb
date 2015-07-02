@@ -21,6 +21,7 @@
 
 <% if @bathroom.user == current_user %>
   <%= button_to "Delete this Bathroom", bathroom_path(@bathroom), method: :delete %>
+  <%= link_to "Edit this Bathroom", edit_bathroom_path(@bathroom), class: 'button' %>
 <% end %>
 
 <h2>Reviews</h2>

@@ -22,7 +22,24 @@ class BathroomsController < ApplicationController
       flash[:notice] = "Bathroom Created!"
       redirect_to bathrooms_path
     else
+      flash.now[:alert] = @bathroom.errors.full_messages.join(":( ")
       render :new
+    end
+  end
+
+  def edit
+    @bathroom = Bathroom.find(params[:id])
+  end
+
+  def update
+    @bathroom = Bathroom.find(params[:id])
+
+    if @bathroom.update(bathroom_params)
+      flash[:notice] = 'Bathroom Edited'
+      redirect_to bathroom_path(@bathroom)
+    else
+      flash.now[:alert] = @bathroom.errors.full_messages.join(":( ")
+      render :edit
     end
   end
 
