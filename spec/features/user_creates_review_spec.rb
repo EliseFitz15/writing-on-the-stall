@@ -1,9 +1,9 @@
 require "rails_helper"
 
 #Acceptance Criteria
-#[ ] I want to be on the Bathrooms details page and see form to write a review
-#[ ] I want to write a review for a specific bathroom
-#[ ] I want to see it on the bathroom details page
+#[√] I want to be on the Bathrooms details page and see form to write a review
+#[√] I want to write a review for a specific bathroom
+#[√] I want to see it on the bathroom details page
 
 feature "As a user
 I want to write a review
@@ -29,7 +29,7 @@ So that I can inform others of the quality of the bathroom" do
       fill_in "Body", with: "Very clean"
       fill_in "Rating", with: 5
       click_button "Submit"
-      expect(page).to have_content("Very Clean")
+      expect(page).to have_content("Very clean")
       expect(page).to have_content(5)
   end
 end

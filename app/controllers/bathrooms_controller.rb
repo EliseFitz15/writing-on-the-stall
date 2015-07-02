@@ -6,8 +6,7 @@ class BathroomsController < ApplicationController
 
   def show
     @bathroom = Bathroom.find(params[:id])
-#    @reviews = @bathroom.reviews.order(created_at: :desc)
-    @reviews = Review.where(bathroom_id: params[:id]).order(created_at: :desc)
+    @reviews = @bathroom.reviews.order(created_at: :desc)
     @review = Review.new
   end
 
