@@ -50,3 +50,5 @@ gem 'valid_attribute', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
 gem 'foundation-rails'
+gem 'rails_12factor', group: :production
+ruby "2.0.0"
