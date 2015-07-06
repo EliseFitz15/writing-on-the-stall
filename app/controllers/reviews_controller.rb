@@ -19,6 +19,13 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @bathroom = Bathroom.find(params[:bathroom_id])
+    @deletereview = Review.find(params[:id]).destroy
+    flash[:notice] = "Review Deleted"
+    redirect_to bathroom_path(@bathroom)
+  end
+
   protected
 
   def review_params
