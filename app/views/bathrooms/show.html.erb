@@ -38,8 +38,15 @@
 
 <div>
 <% @reviews.each do |review| %>
-  <%= review.body %>
-  <%= review.rating %>
-  <%= review.created_at %>
+  <p><%= review.body %></p>
+  <p><%= review.rating %></p>
+  <p><%= review.created_at %></p>
+  <p>
+    <% if review.user == current_user %>
+      <%= button_to "Delete this Review",
+      bathroom_review_path(@bathroom, review.id),
+      method: :delete %>
+    <% end %>
+  </p>
 <% end %>
 </div>
