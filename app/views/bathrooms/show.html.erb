@@ -38,6 +38,9 @@
 
 <div>
 <% @reviews.each do |review| %>
+<div><%= button_to '+1', upvote_review_votes_path(review), method: :post %>
+  <%= button_to '-1', downvote_review_votes_path(review), method: :post %></div>
+  <%= @vote_total[review.id] %>
   <%= review.body %>
   <%= review.rating %>
   <%= review.created_at %>
