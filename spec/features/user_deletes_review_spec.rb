@@ -12,7 +12,7 @@ so it will no longer be visible" do
   scenario 'User deletes a review' do
     user = FactoryGirl.create(:user)
     bathroom = FactoryGirl.create(:bathroom, user: user)
-    review = FactoryGirl.create(:review, user: user, bathroom: bathroom)
+    FactoryGirl.create(:review, user: user, bathroom: bathroom)
     visit new_user_session_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
@@ -28,7 +28,7 @@ so it will no longer be visible" do
     user = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user)
     bathroom = FactoryGirl.create(:bathroom, user: user)
-    review = FactoryGirl.create(:review, user: user, bathroom: bathroom)
+    FactoryGirl.create(:review, user: user, bathroom: bathroom)
     visit new_user_session_path
     fill_in 'Email', with: user2.email
     fill_in 'Password', with: user2.password

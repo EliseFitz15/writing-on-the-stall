@@ -16,7 +16,7 @@ FactoryGirl.define do
     zip_code "02116"
     description "Back corner. Key from barista. Watch out for joe."
   end
-  
+
   factory :review do
     user
     bathroom
