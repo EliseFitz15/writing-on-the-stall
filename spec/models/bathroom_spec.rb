@@ -11,8 +11,8 @@ RSpec.describe Bathroom do
     context 'there are results' do
       it 'should search zip codes' do
         expect(Bathroom.search("02116")).to eq Bathroom.where(
-        "zip_code = ?",
-        "02116"
+          "zip_code = ?",
+          "02116"
         )
       end
     end
