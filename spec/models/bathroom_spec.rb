@@ -10,7 +10,8 @@ RSpec.describe Bathroom do
   context 'when search method called on bathroom' do
     describe '.search' do
       it 'should search zip codes' do
-        expect(Bathroom.search("02116")).to eq Bathroom.where("zip_code = ?", "02116")
+        expect(Bathroom.search("02116")).to eq
+        Bathroom.where("zip_code = ?", "02116")
       end
     end
   end
