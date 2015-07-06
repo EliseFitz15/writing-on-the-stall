@@ -14,4 +14,12 @@ So I can search for bathrooms by location/rating' do
     expect(page).to have_content("bathroom(s) found in this area")
     expect(page).to have_content("Starbucks")
   end
+
+  scenario 'user searches zip code with no bathrooms in results' do
+    visit bathrooms_path
+    fill_in :search, with: "12345"
+    click_button "Search"
+
+    expect(page).to have_content("0 bathroom(s) found in this area")
+  end
 end
