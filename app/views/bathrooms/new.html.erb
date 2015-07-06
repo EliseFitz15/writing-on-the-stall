@@ -1,18 +1,22 @@
-<h1>Create a Bathroom</h1>
-<%= form_for @bathroom do |f| %>
+<div class="row">
+  <div class="small-6 small-offset-3 columns">
+    <h1 class="header">Create a Bathroom</h1>
+    <%= form_for @bathroom do |f| %>
 
-  <%= f.label :location_name %>
-  <%= f.text_field :location_name %>
+      <%= f.label :location_name %>
+      <%= f.text_field :location_name %>
 
-  <%= f.label :street_address %>
-  <%= f.text_field :street_address %>
+      <%= f.label :street_address %>
+      <%= f.text_field :street_address %>
 
-  <%= f.label :zip_code %>
-  <%= f.text_field :zip_code %>
+      <%= f.label :zip_code %>
+      <%= f.text_field :zip_code %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
 
-  <%= f.submit "Create Bathroom" %>
+      <%= f.submit "Create Bathroom" %>
 
-<% end %>
+    <% end %>
+  </div>
+</div>

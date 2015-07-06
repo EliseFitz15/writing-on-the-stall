@@ -1,17 +1,28 @@
-<div>
-  <%= form_tag(bathrooms_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Bathrooms by Zip Code" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
+<div class="row">
+  <div class="small-4 columns">
+    <%= link_to "Create New Bathroom", new_bathroom_path %>
+  </div>
+    <div class="small-4 small-offset-8 columns">
+      <%= form_tag(bathrooms_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Bathrooms by Zip Code" %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+  </div>
 </div>
-
-<h1>
-  List of Bathrooms
-</h1>
-
-<% @bathrooms.each do |bathroom| %>
-  <li><%= link_to bathroom.location_name, bathroom_path(bathroom) %><br>
-  <%= bathroom.street_address %></li>
-<%end%>
-
-<%= link_to "Create New Bathroom", new_bathroom_path %>
+<div class="row">
+  <div class="small-6 columns">
+      <h1>
+        List of Bathrooms
+      </h1>
+  </div>
+</div>
+<div class="row">
+  <% @bathrooms.each do |bathroom| %>
+    <div class="small-12 columns">
+      <ul>
+        <li><%= link_to bathroom.location_name, bathroom_path(bathroom) %><br>
+        <%= bathroom.street_address %></li>
+      </ul>
+    </div>
+  <%end%>
+</div>

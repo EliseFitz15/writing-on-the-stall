@@ -1,4 +1,4 @@
-<h1>
+<h1 class="header">
   Bathroom at: <%= @bathroom.location_name %>
 </h1>
 
@@ -17,7 +17,6 @@
   </tr>
 </table>
 
-<%= link_to "Back to All Bathrooms", bathrooms_path %>
 
 <% if @bathroom.user == current_user %>
   <%= button_to "Delete this Bathroom", bathroom_path(@bathroom), method: :delete %>
@@ -50,3 +49,4 @@
   </p>
 <% end %>
 </div>
+<%= link_to "Back to All Bathrooms", bathrooms_path %>
