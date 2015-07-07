@@ -13,9 +13,9 @@ feature 'As a user
     user = FactoryGirl.create(:user)
     bathroom = FactoryGirl.create(:bathroom, user: user)
     review = FactoryGirl.create(:review, user: user, bathroom: bathroom)
-      10.times do
-        FactoryGirl.create(:review, user: user, bathroom: bathroom)
-      end
+    10.times do
+      FactoryGirl.create(:review, user: user, bathroom: bathroom)
+    end
 
     visit new_user_session_path
     fill_in 'Email', with: user.email
