@@ -10,8 +10,12 @@ So I can find a good bathroom when needed." do
   scenario "User views list of bathrooms" do
     user = FactoryGirl.create(:user)
     bathroom = FactoryGirl.create(:bathroom, user: user)
+    10.times do
+      FactoryGirl.create(:bathroom, user: user)
+    end
     visit bathrooms_path
     expect(page).to have_content("List of Bathrooms")
     expect(page).to have_content(bathroom.location_name)
+    expect(page).to have_content("Next")
   end
 end
