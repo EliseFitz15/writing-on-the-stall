@@ -37,16 +37,19 @@
 </div>
 
 <div>
-<% @reviews.each do |review| %>
-  <p><%= review.body %></p>
-  <p><%= review.rating %></p>
-  <p><%= review.created_at %></p>
-  <p>
-    <% if review.user == current_user %>
-      <%= button_to "Delete this Review",
-      bathroom_review_path(@bathroom, review.id),
-      method: :delete %>
-    <% end %>
-  </p>
-<% end %>
+  <% @reviews.each do |review| %>
+    <div>
+      <%= button_to '+1', upvote_review_votes_path(review), method: :post %>
+      <%= @vote_total[review.id] %>
+      <%= button_to '-1', downvote_review_votes_path(review), method: :post %>
+    </div>
+    <div>
+      Review: <%= review.body %>
+      Bathroom Rating: <%= review.rating %>
+      Time of Review: <%= review.created_at %>
+      <% if review.user == current_user %>
+        <%= button_to "Delete this Review", bathroom_review_path(@bathroom, review.id), method: :delete %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

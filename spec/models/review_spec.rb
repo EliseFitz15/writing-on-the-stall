@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Review do
-  it { should validate_presence_of(:user_id) }
-  it { should validate_presence_of(:bathroom_id) }
+  it { should belong_to(:user) }
+  it { should belong_to(:bathroom) }
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:rating) }
 end

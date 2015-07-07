@@ -14,6 +14,7 @@ class BathroomsController < ApplicationController
     @bathroom = Bathroom.find(params[:id])
     @reviews = @bathroom.reviews.order(created_at: :desc)
     @review = Review.new
+    @vote_total = Vote.group(:review_id).sum(:vote)
   end
 
   def new
