@@ -12,12 +12,10 @@ feature 'As a user
     and sees reviews for that bathroom' do
     user = FactoryGirl.create(:user)
     bathroom = FactoryGirl.create(:bathroom, user: user)
-    review = Review.create!(
-      user_id: user.id,
-      bathroom_id: bathroom.id,
-      body: "Favorite bathroom evahhhhhh",
-      rating: 3
-      )
+    review = FactoryGirl.create(:review, user: user, bathroom: bathroom)
+    10.times do
+      FactoryGirl.create(:review, user: user, bathroom: bathroom)
+    end
 
     visit new_user_session_path
     fill_in 'Email', with: user.email
@@ -32,5 +30,6 @@ feature 'As a user
     expect(page).to have_content(review.body)
     expect(page).to have_content(review.rating)
     expect(page).to have_content(review.created_at)
+    expect(page).to have_content("Next")
   end
 end

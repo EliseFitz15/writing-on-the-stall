@@ -11,4 +11,6 @@ class Bathroom < ActiveRecord::Base
   def self.search(query)
     where("zip_code = ?", "#{query}")
   end
+
+  paginates_per 10
 end
