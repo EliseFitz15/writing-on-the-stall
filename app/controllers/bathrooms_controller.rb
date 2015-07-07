@@ -1,6 +1,7 @@
 class BathroomsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   def index
+    binding.pry
     if params[:search]
       @bathrooms = Bathroom.search(params[:search]).order("created_at DESC")
       @count = Bathroom.search(params[:search]).count
