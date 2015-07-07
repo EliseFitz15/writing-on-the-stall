@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
+      ReviewNotifier.new_review(@review).deliver_later
       flash[:notice] = "Review saved"
       redirect_to bathroom_path(params[:bathroom_id])
     else
