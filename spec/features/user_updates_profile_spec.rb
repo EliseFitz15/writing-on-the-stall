@@ -15,13 +15,13 @@ So that I can keep my profile up to date" do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button('Log in')
-    click_link 'Edit Profile'
+    click_link('edit-profile')
     expect(page).to have_content("Edit User")
     fill_in 'Email', with: email_update
     fill_in 'Current password', with: user.password
     click_button 'Update'
     expect(page).to have_content("Your account has been updated successfully.")
-    click_link 'Edit Profile'
+    click_link('edit-profile')
     find_field('Email').value.should eq email_update
   end
 end
