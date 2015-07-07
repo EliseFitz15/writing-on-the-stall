@@ -12,9 +12,15 @@ FactoryGirl.define do
     user
     rating_average 5.0
     location_name "Starbucks"
-    street_address "62 Boylston"
+    sequence(:street_address) {|n| "#{n} Boylston" }
     zip_code "02116"
     description "Back corner. Key from barista. Watch out for joe."
   end
 
+  factory :review do
+    user
+    bathroom
+    body "Look out for Joe and Joe"
+    rating 5
+  end
 end
