@@ -11,7 +11,7 @@ So that I can inform others of the quality of the review" do
   scenario "user upvotes a review and sees on page" do
     user = FactoryGirl.create(:user)
     bathroom = FactoryGirl.create(:bathroom)
-    review = FactoryGirl.create(:review, bathroom: bathroom)
+    F actoryGirl.create(:review, bathroom: bathroom)
 
     visit new_user_session_path
     fill_in 'Email', with: user.email
@@ -27,7 +27,7 @@ So that I can inform others of the quality of the review" do
   scenario "user downvotes a review and sees on page" do
     user = FactoryGirl.create(:user)
     bathroom = FactoryGirl.create(:bathroom)
-    review = FactoryGirl.create(:review, bathroom: bathroom)
+    FactoryGirl.create(:review, bathroom: bathroom)
 
     visit new_user_session_path
     fill_in 'Email', with: user.email
