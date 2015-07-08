@@ -27,4 +27,20 @@ So that others can review it" do
     expect(page).to have_content("McDonald's")
     expect(page).to have_content("12 Junkyard lane")
   end
+  scenario 'User fills in bathroom form with invalid information' do
+    user = FactoryGirl.create(:user)
+    visit new_user_session_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button "Log in"
+
+    visit bathrooms_path
+    click_link 'Create New Bathroom'
+    fill_in :bathroom_zip_code, with: "043"
+    click_button "Create Bathroom"
+    expect(page).to have_content("Location name can't be blank")
+    expect(page).to have_content("Street address can't be blank")
+    expect(page).to have_content("Zip code is the wrong length (should be 5 characters)")
+    expect(page).to have_content("Description can't be blank")
+  end
 end
