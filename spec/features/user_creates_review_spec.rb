@@ -11,6 +11,7 @@ So that I can inform others of the quality of the bathroom" do
   scenario "user writes a review and sees on page" do
     user = FactoryGirl.create(:user)
     bathroom = FactoryGirl.create(:bathroom)
+    FactoryGirl.create(:review, bathroom: bathroom)
 
     visit new_user_session_path
     fill_in 'Email', with: user.email
@@ -19,11 +20,12 @@ So that I can inform others of the quality of the bathroom" do
 
     click_link "Check out bathrooms"
     click_link bathroom.location_name
-    fill_in "Body", with: "Very clean"
-    fill_in "Rating", with: 5
+    fill_in "Body", with: "Not very clean"
+    fill_in "Rating", with: 1
     click_button "Submit"
-    expect(page).to have_content("Very clean")
-    expect(page).to have_content(5)
+    expect(page).to have_content("Not very clean")
+    expect(page).to have_content(1)
+    expect(page).to have_content(3.0)
   end
   scenario "user writes an invalid review and sees error on page" do
     user = FactoryGirl.create(:user)

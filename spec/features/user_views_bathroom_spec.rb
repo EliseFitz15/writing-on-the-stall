@@ -19,7 +19,6 @@ So that I can get more information about it" do
     visit bathrooms_path
     click_link bathroom.location_name
 
-    expect(page).to have_content(bathroom.rating_average)
     expect(page).to have_content(bathroom.location_name)
     expect(page).to have_content(bathroom.street_address)
     expect(page).to have_content(bathroom.zip_code)

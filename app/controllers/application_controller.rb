@@ -6,10 +6,14 @@ class ApplicationController < ActionController::Base
 
   def avg_rating
     all_ratings = []
-    @reviews.each do |r|
-      all_ratings << r.rating.to_f
+    if @reviews.empty?
+      return 0.0
+    else
+      @reviews.each do |r|
+        all_ratings << r.rating.to_f
+      end
+      (all_ratings.sum / all_ratings.length).round(1)
     end
-    (all_ratings.sum / all_ratings.length).round(1)
   end
 
   protected

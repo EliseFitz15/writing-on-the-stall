@@ -10,7 +10,6 @@ FactoryGirl.define do
 
   factory :bathroom do
     user
-    rating_average 5.0
     location_name "Starbucks"
     sequence(:street_address) { |n| "#{n} Boylston" }
     zip_code "02116"
