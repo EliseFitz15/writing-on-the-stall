@@ -7,9 +7,12 @@ class VotesController < ApplicationController
     else
       @value.vote = 1
     end
-    @value.save
-    flash[:notice] = "Thanks for voting"
-    redirect_to bathroom_path(@review.bathroom)
+    respond_to do |format|
+      @value.save
+      @vote_total = Vote.group(:review_id).sum(:vote)
+      format.html { redirect_to bathroom_path(@review.bathroom), notice: "Great vote!" }
+      format.json { render json: @vote_total[@review.id] }
+    end
   end
 
   def downvote
@@ -18,9 +21,12 @@ class VotesController < ApplicationController
     else
       @value.vote = -1
     end
-    @value.save
-    flash[:notice] = "Thanks for voting"
-    redirect_to bathroom_path(@review.bathroom)
+    respond_to do |format|
+      @value.save
+      @vote_total = Vote.group(:review_id).sum(:vote)
+      format.html { redirect_to bathroom_path(@review.bathroom), notice: "Great vote!" }
+      format.json { render json: @vote_total[@review.id] }
+    end
   end
 
   protected

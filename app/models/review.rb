@@ -9,4 +9,9 @@ class Review < ActiveRecord::Base
   validates :rating, presence: true
 
   paginates_per 10
+
+  # def vote_total
+  #   votes.pluck(:vote).sum
+  # end
+
 end
