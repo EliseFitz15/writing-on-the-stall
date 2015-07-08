@@ -17,7 +17,6 @@ class BathroomsController < ApplicationController
     @reviews = @bathroom.reviews.order(created_at: :desc).page(params[:page])
     @review = Review.new
     @vote_total = Vote.group(:review_id).sum(:vote)
-    @avg_rating = avg_rating
   end
 
   def new
