@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @reviews = @bathroom.reviews.order(created_at: :desc).page(params[:page])
     @vote_total = Vote.group(:review_id).sum(:vote)
+    @avg_rating = avg_rating
 
     if @review.save
       ReviewNotifier.new_review(@review).deliver_later

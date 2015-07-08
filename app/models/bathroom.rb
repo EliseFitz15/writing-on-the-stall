@@ -13,5 +13,15 @@ class Bathroom < ActiveRecord::Base
     where("zip_code = ?", "#{query}")
   end
 
+  # def avg_rating
+  #   # @bathroom = Bathroom.find(params[:id])
+  #   # @reviews = @bathroom.reviews.order(created_at: :desc).page(params[:page])
+  #   all_ratings = []
+  #   @reviews.each do |r|
+  #     all_ratings << r.rating.to_f
+  #   end
+  #   (all_ratings.sum / all_ratings.length).round(1)
+  # end
+
   paginates_per 10
 end
