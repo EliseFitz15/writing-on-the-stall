@@ -19,8 +19,7 @@ So that I can inform others of the quality of the review" do
     click_button "Log in"
 
     visit bathroom_path(bathroom)
-    click_button "+1"
-    expect(page).to have_content("Thanks for voting")
+    click_link "+1"
     expect(page).to have_content("1")
   end
 
@@ -35,8 +34,7 @@ So that I can inform others of the quality of the review" do
     click_button "Log in"
 
     visit bathroom_path(bathroom)
-    click_button "-1"
-    expect(page).to have_content("Thanks for voting")
+    click_link "-1"
     expect(page).to have_content("-1")
   end
 end
