@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review saved"
       redirect_to bathroom_path(params[:bathroom_id])
     else
-      flash.now[:error] = @review.errors.full_messages.join(". ")
+      flash.now[:alert] = @review.errors.full_messages.join(". ")
       render "bathrooms/show"
     end
   end
