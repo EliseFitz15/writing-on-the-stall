@@ -27,8 +27,8 @@ RSpec.describe Bathroom do
     context 'there are reviews with ratings' do
       it 'should calulate average rating for bathroom' do
         bathroom = FactoryGirl.create(:bathroom)
-        review =  FactoryGirl.create(:review, bathroom: bathroom)
-        review2 = FactoryGirl.create(:review, rating: 3, bathroom: bathroom)
+        FactoryGirl.create(:review, bathroom: bathroom)
+        FactoryGirl.create(:review, rating: 3, bathroom: bathroom)
         expect(bathroom.avg_rating).to eq(4.0)
       end
     end
