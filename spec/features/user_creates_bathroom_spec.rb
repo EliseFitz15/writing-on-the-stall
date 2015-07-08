@@ -40,7 +40,9 @@ So that others can review it" do
     click_button "Create Bathroom"
     expect(page).to have_content("Location name can't be blank")
     expect(page).to have_content("Street address can't be blank")
-    expect(page).to have_content("Zip code is the wrong length (should be 5 characters)")
+    expect(page).to have_content(
+      "Zip code is the wrong length (should be 5 characters)"
+    )
     expect(page).to have_content("Description can't be blank")
   end
 end
