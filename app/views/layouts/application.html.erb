@@ -20,6 +20,9 @@
       <ul class="right">
         <%- if current_user -%>
           <div class='profile-photo'>
+            <div class='user-email'>
+              <%= current_user.email %>
+            </div>
             <%- if current_user.profile_photo.file == nil -%>
               <li><%= link_to image_tag("default.png"), edit_user_registration_path, id: "edit-profile" %></li>
             <%- else -%>
@@ -47,7 +50,6 @@
   <%= yield %>
 
 <div class="footer">
-
   <%= yield :extra_footer %>
 </div>
   <%= javascript_include_tag 'application' %>
