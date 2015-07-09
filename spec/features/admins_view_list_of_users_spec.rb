@@ -6,8 +6,8 @@ require 'rails_helper'
 feature "As an Admin
 I want to view a list of users
 so I can manage users" do
-let(:admin) { FactoryGirl.create(:user, role: 'admin') }
-let!(:user) { FactoryGirl.create(:user) }
+  let(:admin) { FactoryGirl.create(:user, role: 'admin') }
+  let!(:user) { FactoryGirl.create(:user) }
   scenario 'admin visits users index' do
 
     visit new_user_session_path

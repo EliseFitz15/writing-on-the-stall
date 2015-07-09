@@ -7,8 +7,8 @@ require "rails_helper"
 feature "As an Admin
 I want to delete users
 so that they no longer have an account" do
-let(:admin) { FactoryGirl.create(:user, role: 'admin') }
-let!(:user) { FactoryGirl.create(:user) }
+  let(:admin) { FactoryGirl.create(:user, role: 'admin') }
+  let!(:user) { FactoryGirl.create(:user) }
   scenario "admin deletes user" do
     visit new_user_session_path
     fill_in 'Email', with: admin.email

@@ -8,10 +8,10 @@ require "rails_helper"
 feature "As an Admin
 I want to delete a review
 so that the review no longer exits on the site" do
-let(:admin) { FactoryGirl.create(:user, role: 'admin') }
-let!(:user) { FactoryGirl.create(:user) }
-let!(:bathroom) { FactoryGirl.create(:bathroom, user: user) }
-let!(:review) { FactoryGirl.create(:review, bathroom: bathroom, user: user) }
+  let(:admin) { FactoryGirl.create(:user, role: 'admin') }
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:bathroom) { FactoryGirl.create(:bathroom, user: user) }
+  let!(:review) { FactoryGirl.create(:review, bathroom: bathroom, user: user) }
 
   scenario "admin deletes review" do
     visit new_user_session_path
