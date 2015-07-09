@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WritingOnTheStall</title>
+  <title>Writing On The Stall</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -10,7 +11,7 @@
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <%= image_tag("Toilet-Sign-White.png") %>
+        <%= link_to image_tag("Toilet-Sign-White.png"), bathrooms_path %>
         <h1><a href="/">Writing On The Stall</a></h1>
       </li>
     </ul>
@@ -18,20 +19,30 @@
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
+          <div class='profile-photo'>
+            <%- if current_user.profile_photo.file == nil -%>
+              <li><%= link_to image_tag("default.png"), edit_user_registration_path, id: "edit-profile" %></li>
+            <%- else -%>
+              <li><%= link_to image_tag(current_user.profile_photo), edit_user_registration_path, id: "edit-profile" %></li>
+            <%- end -%>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <%- else -%>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <%- end -%>
+          </div>
       </ul>
     </section>
   </nav>
 
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
-    </div>
-  <%- end -%>
+  <% flash.keys.each do |type| %>
+    <% flash[type].split(":( ").each do |f| %>
+      <div data-alert class="flash <%= type %> alert-box radius">
+          <%= f %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
+  <% end %>
 
   <%= yield %>
 

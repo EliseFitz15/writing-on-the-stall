@@ -1,0 +1,70 @@
+<h1>
+  Bathroom at: <%= @bathroom.location_name %>
+</h1>
+
+<table>
+  <tr>
+    <th>Rating</th>
+    <th>Street Address</th>
+    <th>Zip Code</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><%= @bathroom.avg_rating %></td>
+    <td><%= @bathroom.street_address %></td>
+    <td><%= @bathroom.zip_code %></td>
+    <td><%= @bathroom.description %></td>
+  </tr>
+</table>
+
+<div class='map'>
+  <iframe
+   width="550"
+   height="425"
+   frameborder="0" style="border:0"
+   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBRo-mtutP62p-Z5mPGwgZj0fArDw7e_7A
+     &q=<%= @bathroom.street_address %>, <%= @bathroom.zip_code %>
+     &attribution_source=Google+Maps+Embed+API
+     &attribution_ios_deep_link_id=comgooglemaps://?daddr=<%= @bathroom.street_address %>, <%= @bathroom.zip_code %>">
+  </iframe>
+</div>
+
+<%= link_to "Back to All Bathrooms", bathrooms_path %>
+
+<% if @bathroom.user == current_user %>
+  <%= button_to "Delete this Bathroom", bathroom_path(@bathroom), method: :delete %>
+  <%= link_to "Edit this Bathroom", edit_bathroom_path(@bathroom), class: 'button' %>
+<% end %>
+
+<h2>Reviews</h2>
+
+<div>
+  <%= form_for [@bathroom, @review] do |f| %>
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+    <%= f.label :rating, "Rating (scale of 1 - 5)" %>
+    <%= f.text_field :rating %>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>
+
+<div>
+  <% @reviews.each do |review| %>
+    <div>
+      <%= link_to '+1', upvote_review_votes_path(review), class: 'upvote' %>
+      <div class= 'vote-total'>
+        <%= @vote_total[review.id] %>
+      </div>
+      <%= link_to '-1', downvote_review_votes_path(review), class: 'downvote' %>
+    </div>
+    <div>
+      Review: <%= review.body %>
+      Bathroom Rating: <%= review.rating %>
+      Time of Review: <%= review.created_at %>
+      <% if review.user == current_user %>
+        <%= button_to "Delete this Review", bathroom_review_path(@bathroom, review.id), method: :delete %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<%= paginate @reviews %>

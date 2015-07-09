@@ -1,7 +1,18 @@
+<div>
+  <%= form_tag(bathrooms_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Bathrooms by Zip Code" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+</div>
+
 <h1>
-  List of Bathrooms
+  Bathrooms BA-BAY!
 </h1>
 
 <% @bathrooms.each do |bathroom| %>
-  <%= bathroom.location_name %>
+  <li><%= link_to bathroom.location_name, bathroom_path(bathroom) %><br>
+  <%= bathroom.street_address %></li>
 <%end%>
+
+<%= link_to "Create New Bathroom", new_bathroom_path %>
+<%= paginate @bathrooms %>
