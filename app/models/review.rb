@@ -10,8 +10,4 @@ class Review < ActiveRecord::Base
 
   paginates_per 10
 
-  # def vote_total
-  #   votes.pluck(:vote).sum
-  # end
-
 end
