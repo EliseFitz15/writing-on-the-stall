@@ -19,4 +19,16 @@ so I can manage users" do
     expect(page).to have_content(user.email)
   end
 
+  scenario 'unauthorized users are redirected' do
+
+    visit new_user_session_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Log in'
+    
+    visit '/admin/users'
+    expect(page).to have_content('not authorized')
+    expect(current_path).to eq(root_path)
+  end
+
 end
