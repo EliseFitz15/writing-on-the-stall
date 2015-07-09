@@ -54,7 +54,12 @@
   padding: 40px 0px 0px 40px;
 }
 
-#search-form {
-  width: 500px;
-  padding: 50px;
+#welcome {
+  background:rgba(255,255,255,0.5);
+  margin: 15%;
+  padding: 20px;
+}
+.button {
+  display: block;
+  margin: 0 auto;
 }

@@ -1,3 +1,9 @@
-<h1>
-  <%= link_to "Explore Bathrooms", bathrooms_path %>
-</h1>
+
+  <div id="welcome" class="small-4 small-offset-4 columns">
+    <h1><%= link_to "Explore Bathrooms", bathrooms_path %></h1>
+    <br>
+    <%= form_tag(bathrooms_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Bathrooms by Zip Code" %>
+      <%= submit_tag "Search", :name => nil, class: "button" %>
+    <% end %>
+  </div>
