@@ -42,6 +42,10 @@
   width: 250px;
 }
 
-.profilepic {
-  height: 25%;
+.profile-photo img {
+  width: 3em;
+  max-height: 3em;
+  float: right;
+  margin-top: 2px;
+  margin-right: 0px;
 }
