@@ -23,12 +23,14 @@
   overflow-x: hidden;
  }
 
+
 .footer {
-  background-color: #333;
+  background-color: #000;
   height: 150px;
-  position: fixed;
+  position: relative;
   top: 100%;
   overflow-y: visible;
+  padding-bottom: 200px;
 }
 
 .top-bar img {
@@ -62,4 +64,7 @@
 .button {
   display: block;
   margin: 0 auto;
+}
+#created {
+  color: white;
 }
