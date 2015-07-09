@@ -1,4 +1,4 @@
-<h1>
+<h1 class="header">
   Bathroom at: <%= @bathroom.location_name %>
 </h1>
 
@@ -67,4 +67,7 @@
     </div>
   <% end %>
 </div>
+
 <%= paginate @reviews %>
+
+<%= link_to "Back to All Bathrooms", bathrooms_path %>

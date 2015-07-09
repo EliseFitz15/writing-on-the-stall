@@ -49,3 +49,12 @@
   margin-top: 2px;
   margin-right: 0px;
 }
+
+.header {
+  padding: 40px 0px 0px 40px;
+}
+
+#search-form {
+  width: 500px;
+  padding: 50px;
+}
