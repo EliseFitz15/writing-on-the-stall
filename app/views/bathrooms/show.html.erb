@@ -51,9 +51,11 @@
 <div>
   <% @reviews.each do |review| %>
     <div>
-      <%= button_to '+1', upvote_review_votes_path(review), method: :post %>
-      <%= @vote_total[review.id] %>
-      <%= button_to '-1', downvote_review_votes_path(review), method: :post %>
+      <%= link_to '+1', upvote_review_votes_path(review), class: 'upvote' %>
+      <div class= 'vote-total'>
+        <%= @vote_total[review.id] %>
+      </div>
+      <%= link_to '-1', downvote_review_votes_path(review), class: 'downvote' %>
     </div>
     <div>
       Review: <%= review.body %>
