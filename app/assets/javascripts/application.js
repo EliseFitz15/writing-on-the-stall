@@ -19,9 +19,9 @@ $(function(){ $(document).foundation(); });
   $('.upvote').on('click', function(event) {
     event.preventDefault();
     $.ajax({
-      type: "POST",
+      type: 'POST',
       url: $('.upvote').attr('href'),
-      dataType: "json",
+      dataType: 'json',
       success: function(response) {
         $('.vote-total').text(response);
       }
@@ -31,9 +31,9 @@ $(function(){ $(document).foundation(); });
   $('.downvote').on('click', function(event) {
     event.preventDefault();
     $.ajax({
-      type: "POST",
+      type: 'POST',
       url: $('.downvote').attr('href'),
-      dataType: "json",
+      dataType: 'json',
       success: function(response) {
         $('.vote-total').text(response);
       }

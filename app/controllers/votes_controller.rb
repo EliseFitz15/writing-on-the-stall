@@ -10,7 +10,6 @@ class VotesController < ApplicationController
     respond_to do |format|
       @value.save
       @vote_total = Vote.group(:review_id).sum(:vote)
-      format.html { redirect_to bathroom_path(@review.bathroom), notice: "Great vote!" }
       format.json { render json: @vote_total[@review.id] }
     end
   end
@@ -24,7 +23,6 @@ class VotesController < ApplicationController
     respond_to do |format|
       @value.save
       @vote_total = Vote.group(:review_id).sum(:vote)
-      format.html { redirect_to bathroom_path(@review.bathroom), notice: "Great vote!" }
       format.json { render json: @vote_total[@review.id] }
     end
   end
