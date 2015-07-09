@@ -10,4 +10,9 @@ class Admin::BathroomsController < ApplicationController
       @bathrooms = Bathroom.all.order('created_at DESC').page(params[:page])
     end
   end
+
+  def show
+    @bathroom = Bathroom.find(params[:id])
+    @reviews = @bathroom.reviews.order(created_at: :desc).page(params[:page])
+  end
 end

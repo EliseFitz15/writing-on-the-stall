@@ -1,8 +1,8 @@
 require "rails_helper"
 
 # Acceptance Criteria
-# [] Admin sees list of bathrooms and buttons to delete them
-# [] Admin can delete bathrooms
+# [√] Admin sees list of bathrooms and buttons to delete them
+# [√] Admin can delete bathrooms
 
 feature "As an Admin
 I want to delete a bathroom
@@ -16,9 +16,9 @@ let!(:bathroom) { FactoryGirl.create(:bathroom, user: user) }
     fill_in 'Password', with: admin.password
     click_button 'Log in'
 
-    visit '/admin/bathrooms'
+    visit admin_bathrooms_path
     expect(page).to have_content(bathroom.location_name)
-    click_button("Delete", match: :first)
+    click_button("Delete Bathroom", match: :first)
     expect(page).to_not have_content(bathroom.location_name)
   end
 end
