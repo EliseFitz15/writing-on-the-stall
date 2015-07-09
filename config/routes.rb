@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index, :destroy]
+    resources :bathrooms, only: [:index, :show, :destroy]
   end
 
   resources :bathrooms do
