@@ -19,16 +19,18 @@
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>
-          <%- if current_user.profile_photo.file == nil -%>
-            <li><%= link_to image_tag("default.png"), edit_user_registration_path, id: "edit-profile" %></li>
+          <div class='profile-photo'>
+            <%- if current_user.profile_photo.file == nil -%>
+              <li><%= link_to image_tag("default.png"), edit_user_registration_path, id: "edit-profile" %></li>
+            <%- else -%>
+              <li><%= link_to image_tag(current_user.profile_photo), edit_user_registration_path, id: "edit-profile" %></li>
+            <%- end -%>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <%- else -%>
-            <li><%= link_to image_tag(current_user.profile_photo), edit_user_registration_path, id: "edit-profile" %></li>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
           <%- end -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
+          </div>
       </ul>
     </section>
   </nav>
