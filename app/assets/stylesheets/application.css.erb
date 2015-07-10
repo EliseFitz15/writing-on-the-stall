@@ -13,10 +13,10 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
+ *= depend_on_asset "Landing_Page.jpg"
  */
  body {
-  background-image: url("Landing_Page.jpg");
+  background-image: url("<%= asset_path('Landing_Page.jpg') %>");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
