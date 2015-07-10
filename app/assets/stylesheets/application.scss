@@ -13,29 +13,46 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
- *= depend_on_asset "Landing_Page.jpg"
  */
 
  body {
-  background-image: url("<%= asset_path('Landing_Page.jpg') %>");
+  background-image: image_url("Landing_Page.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
-  /*overflow-x: hidden;*/
+  background-position: 0px 45px;
  }
- 
-/*
-.footer img {
-  float: left;
-}*/
+
+.container {
+  padding: 10px;
+  background:rgba(255,255,255,0.5);
+}
+
+#vote-div {
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.review-container {
+  padding: 15px;
+  display: inline-block;
+  vertical-align: -webkit-baseline-middle;
+}
+
+.container-total-review {
+  background:rgba(255,255,255,0.8);
+}
+
+.review-container p {
+  margin-bottom: 10px;
+}
 
 .footer {
   background-color: #000;
   height: 150px;
   position: relative;
-  top: 100%;
-  /*overflow-y: visible;*/
-  /*padding-bottom: 200px;*/
+  width: 100%;
+  top: calc(100% - 150px);
 }
 
 .top-bar {
@@ -45,8 +62,8 @@
 .top-bar img {
   height: 100%;
   float: left;
-  background-color: #26ade4;
   margin-right: 10px;
+  background-color: #FF0082;
 }
 
 .top-bar h1 {
@@ -78,7 +95,7 @@
 }
 
 .top-bar-section li a:not(.button):hover {
-    background: #26ade4 !important;
+    background: #6fdf52 !important;
 }
 
 .user-email {
@@ -101,7 +118,8 @@
 }
 
 .title {
-  color: #26ade4;
+  text-align: center;
+  color: #FF0082;
   margin-bottom: 90px;
 }
 
@@ -115,12 +133,8 @@
   width: auto;
 }
 
-h1 {
-  text-align: center;
-}
-
-.header {
-  padding: 40px 0px 0px 40px;
+.small-4 {
+text-align: center;
 }
 
 #welcome {
@@ -130,15 +144,44 @@ h1 {
   text-align: center;
 }
 
+
+.searchbra {
+  margin-left: 0;
+}
 .button {
   display: block;
+  padding: 10px;
   margin: 0 auto;
+  color: #000000;
+}
+
+.button:hover {
+  background-color: #6FDF52;
+  color: #000000;
+}
+
+h5 {
+  text-align: center;
 }
 
 #created {
   color: white;
 }
 
-/*.footer ul {
-  float: right;
-}*/
+h1 a {
+  text-align: center;
+}
+
+h1 {
+  color: #FF0082;
+}
+
+h2 {
+  color: #FF0082;
+}
+
+
+h1 a:hover {
+  color: #6FDF52;
+  text-align: center;
+}

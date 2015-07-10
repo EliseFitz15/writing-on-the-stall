@@ -1,8 +1,5 @@
-<div class="row">
-  <div class="small-4 columns">
-    <%= link_to "Create New Bathroom", new_bathroom_path %>
-  </div>
-    <div class="small-4 small-offset-8 columns">
+<div class="searchbra row">
+  <div class="searchbox small-4">
       <%= form_tag(bathrooms_path, :method => "get", id: "search-form") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search Bathrooms by Zip Code" %>
         <%= submit_tag "Search", :name => nil %>
@@ -14,17 +11,23 @@
 List of Bathrooms
 </h1>
 
+<div class="small-4 small-offset-4">
+  <h5><%= link_to "Create New Bathroom", new_bathroom_path %></h5>
+</div>
+
 <% @bathrooms.each do |bathroom| %>
   <table class="bathroom-list small-4 small-offset-4">
     <tr>
       <th>Rating</th>
       <th>Location</th>
       <th>Address</th>
+      <th>City</th>
     </tr>
     <tr>
       <td><%= bathroom.avg_rating %></td>
       <td><%= link_to bathroom.location_name, bathroom_path(bathroom) %></td>
       <td><%= bathroom.street_address %></td>
+      <td><%= bathroom.city %></td>
     </tr>
   </table>
 <%end%>
