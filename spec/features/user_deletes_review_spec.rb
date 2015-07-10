@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 # Acceptance Criteria
-# [] There is a delete button on the review
-# [] I can click the button to delete a review
-# [] I am notified when I delete a review
-# [] I can only see the delete button if I own the review
+# [√] There is a delete button on the review
+# [√] I can click the button to delete a review
+# [√] I am notified when I delete a review
+# [√] I can only see the delete button if I own the review
 
 feature "As an authenticated user
 I want to delete a review that I have written
