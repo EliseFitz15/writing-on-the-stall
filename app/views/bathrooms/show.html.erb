@@ -1,72 +1,85 @@
-<h1 class="header">
-  <%= @bathroom.location_name %>
-</h1>
-<p>
-  <%= @bathroom.street_address %><%= @bathroom.zip_code %>
-</p>
-
-<table>
-  <tr>
-    <th>Rating</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><%= @bathroom.avg_rating %></td>
-    <td><%= @bathroom.description %></td>
-  </tr>
-</table>
-
-<div class='map'>
-  <iframe
-   width="425"
-   height="300"
-   frameborder="0" style="border:0"
-   src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_KEY"] %>
-     &q=<%= @bathroom.street_address %>, <%= @bathroom.zip_code %>
-     &attribution_source=Google+Maps+Embed+API
-     &attribution_ios_deep_link_id=comgooglemaps://?daddr=<%= @bathroom.street_address %>, <%= @bathroom.zip_code %>">
-  </iframe>
-</div>
-
-<%= link_to "Back to All Bathrooms", bathrooms_path %>
-
-<% if @bathroom.user == current_user %>
-  <%= button_to "Delete this Bathroom", bathroom_path(@bathroom), method: :delete %>
-  <%= link_to "Edit this Bathroom", edit_bathroom_path(@bathroom), class: 'button' %>
-<% end %>
-
-<h2>Reviews</h2>
-
-<div>
-  <%= form_for [@bathroom, @review] do |f| %>
-    <%= f.label :body %>
-    <%= f.text_field :body %>
-    <%= f.label :rating, "Rating (scale of 1 - 5)" %>
-    <%= f.text_field :rating %>
-    <%= f.submit "Submit" %>
-  <% end %>
-</div>
-
-<div>
-  <% @reviews.each do |review| %>
-    <div>
-      <%= link_to image_tag("Upvote_Edited_Final.png"), upvote_review_votes_path(review), class: 'upvote' %>
-        <div class= 'vote-total'>
-          <%= @vote_total[review.id] %>
-        </div>
-      <%= link_to image_tag("Downvote_Edited_Final.png"), downvote_review_votes_path(review), class: 'downvote' %>
+<div class="row">
+  <div class="container clearfix text-center">
+    <div id="back-to-list">
+      <%= button_to "Back to All Bathrooms", bathrooms_path, class: 'button', method: :get %>
     </div>
-    <div>
-      Review: <%= review.body %>
-      Bathroom Rating: <%= review.rating %>
-      Time of Review: <%= review.created_at %>
-      <% if review.user == current_user %>
-        <%= button_to "Delete this Review", bathroom_review_path(@bathroom, review.id), method: :delete %>
-      <% end %>
+
+    <h1>
+      <%= @bathroom.location_name %>
+    </h1>
+
+    <p>
+      <%= @bathroom.street_address %>, <%= @bathroom.city %> <%= @bathroom.zip_code %>
+    </p>
+
+    <table align="center">
+      <tr>
+        <th>Rating</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><%= @bathroom.avg_rating %></td>
+        <td><%= @bathroom.description %></td>
+      </tr>
+    </table>
+
+    <div align="center">
+      <iframe
+       width="425"
+       height="300"
+       frameborder="0" style="border:0"
+       src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_KEY"] %>
+         &q=<%= @bathroom.street_address %>, <%= @bathroom.zip_code %>
+         &attribution_source=Google+Maps+Embed+API
+         &attribution_ios_deep_link_id=comgooglemaps://?daddr=<%= @bathroom.street_address %>, <%= @bathroom.zip_code %>">
+      </iframe>
     </div>
-  <% end %>
+
+
+    <% if @bathroom.user == current_user %>
+        <ul class="button-group text-center">
+          <li><%= button_to "Delete this Bathroom", bathroom_path(@bathroom), method: :delete, class: 'button' %></li>
+          <li><%= button_to "Edit this Bathroom", edit_bathroom_path(@bathroom), class: 'button', method: :get %></li>
+        </ul>
+    <% end %>
+        <h2>Reviews</h2>
+  </div>
 </div>
+<div class="row">
+  <div class="enter-review">
+    <div class="container">
+    <%= form_for [@bathroom, @review] do |f| %>
 
-<%= paginate @reviews %>
+      <%= f.label :body %>
+      <%= f.text_field :body %>
 
-<%= link_to "Back to All Bathrooms", bathrooms_path %>
+      <%= f.label :rating, "Rating (scale of 1 - 5)" %>
+      <%= f.text_field :rating %>
+
+      <%= f.submit "Submit" %>
+    <% end %>
+    </div>
+  </div>
+
+    <% @reviews.each do |review| %>
+    <div class="container-total-review">
+      <div id="vote-div">
+        <%= link_to image_tag("Upvote_Edited_Final.png"), upvote_review_votes_path(review), class: 'upvote' %>
+          <div class= 'vote-total'>
+            <%= @vote_total[review.id] %>
+          </div>
+        <%= link_to image_tag("Downvote_Edited_Final.png"), downvote_review_votes_path(review), class: 'downvote' %>
+      </div>
+      <div class="review-container">
+        <p><strong>Review:</strong> <%= review.body %></p>
+        <p><strong>Bathroom Rating:</strong> <%= review.rating %></p>
+        <p><strong>Time of Review:</strong> <%= review.created_at %></p>
+        <% if review.user == current_user %>
+          <%= button_to "Delete this Review", bathroom_review_path(@bathroom, review.id), method: :delete, class: "button" %>
+        <% end %>
+      </div>
+  </div>
+  <% end %>
+
+  <%= paginate @reviews %>
+</div>
