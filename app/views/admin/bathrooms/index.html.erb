@@ -1,0 +1,22 @@
+<div>
+  <%= form_tag(bathrooms_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Bathrooms by Zip Code" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+</div>
+
+<h1>
+  List of Bathrooms
+</h1>
+
+<% @bathrooms.each do |bathroom| %>
+  <li>
+    <%= link_to bathroom.location_name, bathroom_path(bathroom) %>
+    <br>
+    <%= bathroom.street_address %>
+    <%= button_to "Delete Bathroom", bathroom_path(bathroom), method: :delete %>
+  </li>
+<%end%>
+
+<%= link_to "Create New Bathroom", new_bathroom_path %>
+<%= paginate @bathrooms %>
