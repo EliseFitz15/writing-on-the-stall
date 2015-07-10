@@ -1,0 +1,6 @@
+<%= @users.each do |user| %>
+  <p>
+    <%= user.email %>
+    <%= button_to "Delete this User", admin_user_path(user), method: :delete %>  
+  </p>
+<% end %>

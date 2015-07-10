@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   root 'homes#index'
   devise_for :users
 
+  namespace :admin do
+    resources :users, only: [:index, :destroy]
+    resources :bathrooms, only: [:index, :show, :destroy]
+  end
+
   resources :bathrooms do
     resources :reviews, only: [:index, :new, :create, :destroy]
   end
