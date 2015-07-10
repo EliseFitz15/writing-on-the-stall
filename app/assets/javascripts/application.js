@@ -18,8 +18,8 @@
 $(function(){ $(document).foundation(); });
   $('.upvote').on('click', function(event) {
     event.preventDefault();
-    var url = $(this).attr("href");
-    var voteTotal = $(this).parent().find(".vote-total");
+    var url = $(this).attr('href');
+    var voteTotal = $(this).parent().find('.vote-total');
     $.ajax({
       type: 'POST',
       url: url,
@@ -32,8 +32,8 @@ $(function(){ $(document).foundation(); });
 
   $('.downvote').on('click', function(event) {
     event.preventDefault();
-    var url = $(this).attr("href");
-    var voteTotal = $(this).parent().find(".vote-total");
+    var url = $(this).attr('href');
+    var voteTotal = $(this).parent().find('.vote-total');
     $.ajax({
       type: 'POST',
       url: url,
