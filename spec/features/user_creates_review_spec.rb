@@ -18,7 +18,7 @@ So that I can inform others of the quality of the bathroom" do
     fill_in 'Password', with: user.password
     click_button "Log in"
 
-    click_link "Check out bathrooms"
+    click_link "Explore Bathrooms"
     click_link bathroom.location_name
     fill_in "Body", with: "Not very clean"
     fill_in "Rating", with: 1
@@ -36,7 +36,7 @@ So that I can inform others of the quality of the bathroom" do
     fill_in 'Password', with: user.password
     click_button "Log in"
 
-    click_link "Check out bathrooms"
+    click_link "Explore Bathrooms"
     click_link bathroom.location_name
     fill_in "Body", with: "Very clean"
     fill_in "Rating", with: 9

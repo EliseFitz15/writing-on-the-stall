@@ -22,7 +22,7 @@ feature 'As a user
     fill_in 'Password', with: user.password
     click_button "Log in"
 
-    click_link 'Check out bathrooms'
+    click_link 'Explore Bathrooms'
     click_link bathroom.location_name
 
     expect(page).to have_content 'Reviews'

@@ -14,7 +14,7 @@ So I can find a good bathroom when needed." do
       FactoryGirl.create(:bathroom, user: user)
     end
     visit bathrooms_path
-    expect(page).to have_content("List of Bathrooms")
+    expect(page).to have_content("Bathrooms BA-BAY!")
     expect(page).to have_content(bathroom.location_name)
     expect(page).to have_content("Next")
   end
