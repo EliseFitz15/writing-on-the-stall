@@ -1,18 +1,17 @@
 <h1 class="header">
-  Bathroom at: <%= @bathroom.location_name %>
+  <%= @bathroom.location_name %>
 </h1>
+<p>
+  <%= @bathroom.street_address %><%= @bathroom.zip_code %>
+</p>
 
 <table>
   <tr>
     <th>Rating</th>
-    <th>Street Address</th>
-    <th>Zip Code</th>
     <th>Description</th>
   </tr>
   <tr>
     <td><%= @bathroom.avg_rating %></td>
-    <td><%= @bathroom.street_address %></td>
-    <td><%= @bathroom.zip_code %></td>
     <td><%= @bathroom.description %></td>
   </tr>
 </table>
