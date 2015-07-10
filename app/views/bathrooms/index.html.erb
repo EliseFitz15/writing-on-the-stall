@@ -1,12 +1,17 @@
-<div>
-  <%= form_tag(bathrooms_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Bathrooms by Zip Code" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
+<div class="row">
+  <div class="small-4 columns">
+    <%= link_to "Create New Bathroom", new_bathroom_path %>
+  </div>
+    <div class="small-4 small-offset-8 columns">
+      <%= form_tag(bathrooms_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Bathrooms by Zip Code" %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+  </div>
 </div>
 
 <h1 class="title small-4 small-offset-4">
-  Bathrooms BA-BAY!
+List of Bathrooms
 </h1>
 
 <% @bathrooms.each do |bathroom| %>
@@ -24,5 +29,4 @@
   </table>
 <%end%>
 
-<div class="button small-4 small-offset-4 columns"><%= link_to "Create New Bathroom", new_bathroom_path %></div>
 <%= paginate @bathrooms %>

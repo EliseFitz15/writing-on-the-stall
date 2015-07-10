@@ -13,22 +13,29 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
+ *= depend_on_asset "Landing_Page.jpg"
  */
+
  body {
-  background-image: url("Landing_Page.jpg");
+  background-image: url("<%= asset_path('Landing_Page.jpg') %>");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
  }
+ 
+/*
+.footer img {
+  float: left;
+}*/
 
 .footer {
-  background-color: #333;
+  background-color: #000;
   height: 150px;
-  position: fixed;
+  position: relative;
   top: 100%;
-  overflow-y: visible;
+  /*overflow-y: visible;*/
+  /*padding-bottom: 200px;*/
 }
 
 .top-bar {
@@ -93,11 +100,6 @@
   background: rgba(0, 0, 0, 0);
 }
 
-.button {
-  background-color: white;
-  position: absolute;
-}
-
 .title {
   color: #26ade4;
   margin-bottom: 90px;
@@ -116,3 +118,27 @@
 h1 {
   text-align: center;
 }
+
+.header {
+  padding: 40px 0px 0px 40px;
+}
+
+#welcome {
+  background:rgba(255,255,255,0.5);
+  margin-top: 150px;
+  padding: 20px;
+  text-align: center;
+}
+
+.button {
+  display: block;
+  margin: 0 auto;
+}
+
+#created {
+  color: white;
+}
+
+/*.footer ul {
+  float: right;
+}*/
