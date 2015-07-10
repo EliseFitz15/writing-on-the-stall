@@ -1,4 +1,5 @@
 class Admin::BathroomsController < ApplicationController
+  before_filter :authorize_admin!
   def index
     if params[:search]
       @bathrooms = Bathroom.search(params[:search]).order(

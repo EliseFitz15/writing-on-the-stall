@@ -15,7 +15,7 @@ so that they no longer have an account" do
     fill_in 'Password', with: admin.password
     click_button 'Log in'
 
-    visit '/admin/users'
+    visit admin_users_path
     expect(page).to have_content(user.email)
     click_button("Delete", match: :first)
     expect(page).to_not have_content(user.email)
