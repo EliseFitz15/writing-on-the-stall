@@ -9,22 +9,24 @@
       <% end %>
   </div>
 </div>
-<div class="row">
-  <div class="small-6 columns">
-      <h1>
-        List of Bathrooms
-      </h1>
-  </div>
-</div>
-<div class="row">
-  <% @bathrooms.each do |bathroom| %>
-    <div class="small-12 columns">
-      <ul>
-        <li><%= link_to bathroom.location_name, bathroom_path(bathroom) %><br>
-        <%= bathroom.street_address %></li>
-      </ul>
-    </div>
-  <%end%>
-</div>
+
+<h1 class="title small-4 small-offset-4">
+List of Bathrooms
+</h1>
+
+<% @bathrooms.each do |bathroom| %>
+  <table class="bathroom-list small-4 small-offset-4">
+    <tr>
+      <th>Rating</th>
+      <th>Location</th>
+      <th>Address</th>
+    </tr>
+    <tr>
+      <td><%= bathroom.avg_rating %></td>
+      <td><%= link_to bathroom.location_name, bathroom_path(bathroom) %></td>
+      <td><%= bathroom.street_address %></td>
+    </tr>
+  </table>
+<%end%>
 
 <%= paginate @bathrooms %>

@@ -19,10 +19,10 @@
 
 <div class='map'>
   <iframe
-   width="550"
-   height="425"
+   width="425"
+   height="300"
    frameborder="0" style="border:0"
-   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBRo-mtutP62p-Z5mPGwgZj0fArDw7e_7A
+   src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_KEY"] %>
      &q=<%= @bathroom.street_address %>, <%= @bathroom.zip_code %>
      &attribution_source=Google+Maps+Embed+API
      &attribution_ios_deep_link_id=comgooglemaps://?daddr=<%= @bathroom.street_address %>, <%= @bathroom.zip_code %>">
@@ -51,11 +51,11 @@
 <div>
   <% @reviews.each do |review| %>
     <div>
-      <%= link_to '+1', upvote_review_votes_path(review), class: 'upvote' %>
-      <div class= 'vote-total'>
-        <%= @vote_total[review.id] %>
-      </div>
-      <%= link_to '-1', downvote_review_votes_path(review), class: 'downvote' %>
+      <%= link_to image_tag("Upvote_Edited_Final.png"), upvote_review_votes_path(review), class: 'upvote' %>
+        <div class= 'vote-total'>
+          <%= @vote_total[review.id] %>
+        </div>
+      <%= link_to image_tag("Downvote_Edited_Final.png"), downvote_review_votes_path(review), class: 'downvote' %>
     </div>
     <div>
       Review: <%= review.body %>
