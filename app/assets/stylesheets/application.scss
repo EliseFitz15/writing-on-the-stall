@@ -62,8 +62,8 @@
 .top-bar img {
   height: 100%;
   float: left;
-  background-color: #26ade4;
   margin-right: 10px;
+  background-color: #FF0082;
 }
 
 .top-bar h1 {
@@ -95,7 +95,7 @@
 }
 
 .top-bar-section li a:not(.button):hover {
-    background: #26ade4 !important;
+    background: #6fdf52 !important;
 }
 
 .user-email {
@@ -118,7 +118,8 @@
 }
 
 .title {
-  color: #26ade4;
+  text-align: center;
+  color: #FF0082;
   margin-bottom: 90px;
 }
 
@@ -143,12 +144,44 @@ text-align: center;
   text-align: center;
 }
 
+
+.searchbra {
+  margin-left: 0;
+}
 .button {
   display: block;
   padding: 10px;
   margin: 0 auto;
+  color: #000000;
+}
+
+.button:hover {
+  background-color: #6FDF52;
+  color: #000000;
+}
+
+h5 {
+  text-align: center;
 }
 
 #created {
   color: white;
+}
+
+h1 a {
+  text-align: center;
+}
+
+h1 {
+  color: #FF0082;
+}
+
+h2 {
+  color: #FF0082;
+}
+
+
+h1 a:hover {
+  color: #6FDF52;
+  text-align: center;
 }
