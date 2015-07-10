@@ -15,22 +15,26 @@
  *= require foundation_and_overrides
  *= depend_on_asset "Landing_Page.jpg"
  */
+
  body {
   background-image: url("<%= asset_path('Landing_Page.jpg') %>");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
  }
-
+/*
+.footer img {
+  float: left;
+}*/
 
 .footer {
   background-color: #000;
   height: 150px;
   position: relative;
   top: 100%;
-  overflow-y: visible;
-  padding-bottom: 200px;
+  /*overflow-y: visible;*/
+  /*padding-bottom: 200px;*/
 }
 
 .top-bar img {
@@ -58,13 +62,20 @@
 
 #welcome {
   background:rgba(255,255,255,0.5);
-  margin: 15%;
+  margin-top: 150px;
   padding: 20px;
+  text-align: center;
 }
+
 .button {
   display: block;
   margin: 0 auto;
 }
+
 #created {
   color: white;
 }
+
+/*.footer ul {
+  float: right;
+}*/
