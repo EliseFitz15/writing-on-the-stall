@@ -5,6 +5,7 @@ class Bathroom < ActiveRecord::Base
   validates :user, presence: true
   validates :location_name, presence: true
   validates :street_address, presence: true, uniqueness: true
+  validates :city, presence: true
   validates :zip_code, length: { is: 5 }
   validates :zip_code, numericality: { only_integer: true }
   validates :description, presence: true

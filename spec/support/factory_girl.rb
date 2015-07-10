@@ -14,6 +14,7 @@ FactoryGirl.define do
     sequence(:street_address) { |n| "#{n} Boylston" }
     zip_code "02116"
     description "Back corner. Key from barista. Watch out for joe."
+    city "Boston"
   end
 
   factory :review do
