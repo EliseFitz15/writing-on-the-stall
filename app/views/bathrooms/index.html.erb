@@ -5,14 +5,24 @@
 <% end %>
 </div>
 
-<h1>
+<h1 class="title small-4 small-offset-4">
   Bathrooms BA-BAY!
 </h1>
 
 <% @bathrooms.each do |bathroom| %>
-  <li><%= link_to bathroom.location_name, bathroom_path(bathroom) %><br>
-  <%= bathroom.street_address %></li>
+  <table class="bathroom-list small-4 small-offset-4">
+    <tr>
+      <th>Rating</th>
+      <th>Location</th>
+      <th>Address</th>
+    </tr>
+    <tr>
+      <td><%= bathroom.avg_rating %></td>
+      <td><%= link_to bathroom.location_name, bathroom_path(bathroom) %></td>
+      <td><%= bathroom.street_address %></td>
+    </tr>
+  </table>
 <%end%>
 
-<%= link_to "Create New Bathroom", new_bathroom_path %>
+<div class="button small-4 small-offset-4 columns"><%= link_to "Create New Bathroom", new_bathroom_path %></div>
 <%= paginate @bathrooms %>
