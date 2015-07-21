@@ -15,7 +15,10 @@
  *= require foundation_and_overrides
  */
 
- body {
+$black: #000;
+$white: #fff;
+
+body {
   background-image: image_url("Landing_Page.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -45,14 +48,6 @@
 
 .review-container p {
   margin-bottom: 10px;
-}
-
-.footer {
-  background-color: #000;
-  height: 150px;
-  position: relative;
-  width: 100%;
-  top: calc(100% - 150px);
 }
 
 .top-bar {
@@ -144,7 +139,6 @@ text-align: center;
   text-align: center;
 }
 
-
 .searchbra {
   margin-left: 0;
 }
@@ -184,4 +178,27 @@ h2 {
 h1 a:hover {
   color: #6FDF52;
   text-align: center;
+}
+// Footer
+
+.page-wrap {
+  margin-bottom: -142px;
+  min-height: 120%;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+.site-footer,
+.page-wrap:after {
+  height: 142px;
+}
+
+footer {
+  background-color: $black;
+  bottom: 0;
+  color: $white;
+  font-size: 18px;
 }
