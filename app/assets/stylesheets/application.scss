@@ -15,7 +15,10 @@
  *= require foundation_and_overrides
  */
 
- body {
+$black = #000;
+$white - #fff;
+
+body {
   background-image: image_url("Landing_Page.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -179,7 +182,7 @@ h1 a:hover {
 // Footer
 
 .page-wrap {
-	margin-bottom: -142px;
+  margin-bottom: -142px;
   min-height: 120%;
 }
 
@@ -194,8 +197,8 @@ h1 a:hover {
 }
 
 footer {
-  background-color: #000000;
+  background-color: $black;
   bottom: 0;
-  color: #ffffff;
+  color: $white;
   font-size: 18px;
 }
