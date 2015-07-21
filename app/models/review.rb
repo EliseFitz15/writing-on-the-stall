@@ -10,5 +10,5 @@ class Review < ActiveRecord::Base
     greater_than_or_equal_to: 1,
     less_than_or_equal_to: 5
   }
-  paginates_per 10
+  paginates_per 2
 end

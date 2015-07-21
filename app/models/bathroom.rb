@@ -26,5 +26,5 @@ class Bathroom < ActiveRecord::Base
     end
   end
 
-  paginates_per 10
+  paginates_per 5
 end
